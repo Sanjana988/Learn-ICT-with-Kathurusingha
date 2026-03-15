@@ -1,0 +1,1 @@
+console.log("ICT With Kathurusingha Website Loaded");

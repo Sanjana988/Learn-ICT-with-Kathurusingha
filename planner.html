@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Personal Study Planner</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f0f4f8;
+      padding: 20px;
+      color: #0d47a1;
+    }
+    h1 { text-align: center; }
+    .planner-container {
+      max-width: 800px;
+      margin: 20px auto;
+      background: #ffffff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    input, textarea, select {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      border-radius: 5px;
+      border: 1px solid #0d47a1;
+      box-sizing: border-box;
+    }
+    button {
+      padding: 10px 20px;
+      background: #2196f3;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    button:hover {
+      background: #1976d2;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+    th, td {
+      padding: 12px;
+      text-align: left;
+      border-bottom: 1px solid #ccc;
+    }
+    tr.done td {
+      text-decoration: line-through;
+      color: gray;
+    }
+    .delete-btn {
+      background: #ff7b00;
+      padding: 5px 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      color: white;
+      border: none;
+    }
+    .delete-btn:hover {
+      background: #e65a00;
+    }
+  </style>
+</head>
+<body>
+
+<div class="planner-container">
+  <h1>Personal Study Planner</h1>
+
+  <h2>Add a Task</h2>
+  <input type="text" id="taskName" placeholder="Task Description">
+  <select id="taskDay">
+    <option value="">Select Day</option>
+    <option>Monday</option>
+    <option>Tuesday</option>
+    <option>Wednesday</option>
+    <option>Thursday</option>
+    <option>Friday</option>
+    <option>Saturday</option>
+    <option>Sunday</option>
+  </select>
+  <input type="time" id="taskTime">
+  <button onclick="addTask()">Add Task</button>
+
+  <h2>Your Tasks</h2>
+  <table id="taskTable">
+    <tr>
+      <th>Day</th>
+      <th>Task</th>
+      <th>Time</th>
+      <th>Status</th>
+      <th>Delete</th>
+    </tr>
+    <!-- Tasks will appear here dynamically -->
+  </table>
+</div>
+
+<script>
+  function addTask() {
+    const taskName = document.getElementById('taskName').value;
+    const taskDay = document.getElementById('taskDay').value;
+    const taskTime = document.getElementById('taskTime').value;
+
+    if (!taskName || !taskDay || !taskTime) {
+      alert('Please fill in all fields!');
+      return;
+    }
+
+    const table = document.getElementById('taskTable');
+    const row = table.insertRow(-1);
+
+    const dayCell = row.insertCell(0);
+    const taskCell = row.insertCell(1);
+    const timeCell = row.insertCell(2);
+    const statusCell = row.insertCell(3);
+    const deleteCell = row.insertCell(4);
+
+    dayCell.textContent = taskDay;
+    taskCell.textContent = taskName;
+    timeCell.textContent = taskTime;
+
+    const doneBtn = document.createElement('button');
+    doneBtn.textContent = 'Mark Done';
+    doneBtn.onclick = function() {
+      row.classList.toggle('done');
+      doneBtn.textContent = row.classList.contains('done') ? 'Undo' : 'Mark Done';
+    };
+    statusCell.appendChild(doneBtn);
+
+    const deleteBtn = document.createElement('button');
+    deleteBtn.textContent = 'Delete';
+    deleteBtn.className = 'delete-btn';
+    deleteBtn.onclick = function() {
+      table.deleteRow(row.rowIndex);
+    };
+    deleteCell.appendChild(deleteBtn);
+
+    // Clear inputs
+    document.getElementById('taskName').value = '';
+    document.getElementById('taskDay').value = '';
+    document.getElementById('taskTime').value = '';
+  }
+</script>
+
+</body>
+</html>

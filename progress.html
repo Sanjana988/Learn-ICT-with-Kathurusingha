@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Progress</title>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+<body class="progress-page">
+
+<h1>Student Progress</h1>
+
+<input id="marks" placeholder="Enter Marks">
+<button onclick="addMark()">Add</button>
+
+<canvas id="chart"></canvas>
+
+<script>
+
+let data=[];
+
+let chart=new Chart(document.getElementById("chart"),{
+
+type:'line',
+
+data:{
+labels:[],
+datasets:[{
+label:"Marks Progress",
+data:data
+}]
+}
+
+});
+
+function addMark(){
+
+let mark=document.getElementById("marks").value
+
+data.push(mark)
+
+chart.data.labels.push("Test "+data.length)
+
+chart.update()
+
+}
+
+</script>
+
+</body>
+</html>

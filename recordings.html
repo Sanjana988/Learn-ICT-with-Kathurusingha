@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Class Recordings - ICT With Kathurusingha</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f0f4f8;
+      color: #0d47a1;
+      padding: 20px;
+    }
+    h1, h2, h3 {
+      text-align: center;
+      margin-top: 20px;
+    }
+    .section {
+      max-width: 900px;
+      margin: 20px auto;
+      background: #ffffff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+    li {
+      margin: 10px 0;
+    }
+    a.recording-link {
+      color: #2196f3;
+      text-decoration: none;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    a.recording-link:hover {
+      color: #ff7b00;
+    }
+    .youtube-links a {
+      display: block;
+      color: #0d47a1;
+      margin: 5px 0;
+      text-decoration: underline;
+    }
+    .youtube-links a:hover {
+      color: #ff7b00;
+    }
+    input[type="file"] {
+      margin: 15px 0;
+    }
+    .message {
+      color: red;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+    footer {
+      background: #0d47a1;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Class Recordings & Discussions</h1>
+
+<!-- Payment Slip Upload -->
+<div class="section">
+  <h2>Upload Payment Slip</h2>
+  <input type="file" id="paymentSlip">
+  <p>Upload the payment slip. Internal recordings will be available after approval.</p>
+</div>
+
+<!-- Model Paper Discussions -->
+<div class="section">
+  <h2>Model Paper Discussions</h2>
+  <ul>
+    <li><a class="recording-link" onclick="checkPayment()">Jan 1st Week</a></li>
+    <li><a class="recording-link" onclick="checkPayment()">Jan 2nd Week</a></li>
+    <li><a class="recording-link" onclick="checkPayment()">Feb 1st Week</a></li>
+    <li><a class="recording-link" onclick="checkPayment()">Feb 2nd Week</a></li>
+    <li><a class="recording-link" onclick="checkPayment()">Mar 1st Week</a></li>
+    <li><a class="recording-link" onclick="checkPayment()">Mar 2nd Week</a></li>
+  </ul>
+</div>
+
+<!-- Lesson Recordings -->
+<div class="section">
+  <h2>Lesson Recordings</h2>
+
+  <h3>Grade 12 Lessons</h3>
+  <ul>
+    <li><a class="recording-link" onclick="checkPayment()">Lesson 1</a></li>
+    <li><a class="recording-link" onclick="checkPayment()">Lesson 2</a></li>
+    <li><a class="recording-link" onclick="checkPayment()">Lesson 3</a></li>
+    <li><a class="recording-link" onclick="checkPayment()">Lesson 4</a></li>
+    <li><a class="recording-link" onclick="checkPayment()">Lesson 5</a></li>
+    <li><a class="recording-link" onclick="checkPayment()">Lesson 6</a></li>
+    <li><a class="recording-link" onclick="checkPayment()">Lesson 7</a></li>
+  </ul>
+
+  <h3>Grade 13 Lessons</h3>
+  <ul>
+    <li><a class="recording-link" onclick="checkPayment()">Lesson 8</a></li>
+    <li><a class="recording-link" onclick="checkPayment()">Lesson 9</a></li>
+    <li><a class="recording-link" onclick="checkPayment()">Lesson 10</a></li>
+    <li><a class="recording-link" onclick="checkPayment()">Lesson 11</a></li>
+    <li><a class="recording-link" onclick="checkPayment()">Lesson 12</a></li>
+    <li><a class="recording-link" onclick="checkPayment()">Lesson 13</a></li>
+  </ul>
+</div>
+
+<!-- Free YouTube Lessons -->
+<div class="section youtube-links">
+  <h2>Free YouTube Lessons</h2>
+
+<!-- Grade 12 Unit 4 -->
+  <h3>Grade 12 - Unit 4</h3>
+  <a href="https://youtu.be/7TeGo-r4l64?si=20v5M774mlSPHH2k" target="_blank">Recorded Session 1</a>
+  <a href="https://youtu.be/APEK_PcZnIY?si=341vaCrsglfJ5Zq-" target="_blank">Recorded Session 2</a>
+
+<!-- Grade 12 Unit 5 -->
+  <h3>Grade 12 - Lesson 5</h3>
+  <a href="https://www.youtube.com/live/CCUKbKbY3jQ?si=c0XUYZphZL4_l3" target="_blank">Live Session 1</a>
+  <a href="https://www.youtube.com/live/xe8xN__jjxM?si=k9LB20wwdk6A_r2r" target="_blank">Live Session 2</a>
+  <a href="https://www.youtube.com/live/l8S9R3h_2q8?si=Wj_2iDlRz7FBXOFX" target="_blank">Live Session 3</a>
+  <a href="https://www.youtube.com/live/FwFmcWb_P-w?si=FRLxJpmOqIQcJiBu" target="_blank">Live Session 4</a>
+  <a href="https://youtu.be/q0fc3efaG3c?si=kpUnUYz-5whDuOMF" target="_blank">Recorded Session</a>
+
+    <!-- Grade 13 Unit 9 -->
+  <h3>Grade 13 - Unit 9</h3>
+  <a href="https://www.youtube.com/live/ual10x84ihc?si=7jUNYltEge74D-Mf" target="_blank">Live Session</a>
+</div>
+
+<!-- Official YouTube Channel -->
+<div class="section youtube-links">
+  <h2>Official ICT With Kathurusingha YouTube Channel</h2>
+  <p>Click below to visit our official YouTube channel for more lessons, updates, and free resources:</p>
+  <a href="https://www.youtube.com/channel/UCv2eZuaYeehdcyLvzucKy-A" target="_blank">ICT Jude Kathurusingha YouTube Channel</a>
+</div>
+
+<footer>
+  <p>© 2026 ICT With Kathurusingha</p>
+</footer>
+
+<script>
+  function checkPayment() {
+    const payment = document.getElementById('paymentSlip').files.length;
+    if(payment === 0) {
+      alert('Please upload the payment slip. Recordings will be available after approval.');
+    } else {
+      alert('Your payment slip has been uploaded. You can access this recording once approved.');
+    }
+  }
+</script>
+
+</body>
+</html>
