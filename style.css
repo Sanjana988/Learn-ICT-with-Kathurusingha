@@ -4,14 +4,14 @@
 body {
     font-family: 'Poppins', sans-serif;
     margin: 0;
-    background: #f0f8ff; /* LIGHT SKY BLUE BACKGROUND */
+    background: #f0f8ff; 
     color: #333;
     overflow-x: hidden;
 }
 
-/* BOXED NAVIGATION HEADER - Updated to Light Sky Blue */
+/* HEADER */
 header {
-    background: #f0f8ff; /* Matches the body color */
+    background: #f0f8ff;
     padding: 15px 5%;
     display: flex;
     justify-content: space-between;
@@ -24,12 +24,7 @@ header {
 
 .logo-area { display: flex; align-items: center; gap: 15px; }
 .logo { height: 50px; border-radius: 4px; }
-header h1 { 
-    font-size: 22px; 
-    color: #002d5b; /* Dark Blue to match other headings */
-    margin: 0; 
-    font-family: 'Playfair Display', serif; 
-}
+header h1 { font-size: 22px; color: #002d5b; margin: 0; font-family: 'Playfair Display', serif; }
 
 nav { display: flex; gap: 10px; }
 nav a {
@@ -38,18 +33,14 @@ nav a {
     text-decoration: none;
     font-weight: 600;
     font-size: 14px;
-    background: #ffffff; /* White background for buttons to pop against sky blue */
+    background: #ffffff;
     border: 1.5px solid #1565c0;
     border-radius: 5px;
     transition: 0.3s;
 }
-nav a:hover { 
-    background: #ff7b00; 
-    color: white; 
-    border-color: #ff7b00; 
-}
+nav a:hover { background: #ff7b00; color: white; border-color: #ff7b00; }
 
-/* HERO SECTION */
+/* HERO SECTION & FLOWING ANIMATION */
 .hero {
     position: relative;
     height: 85vh;
@@ -70,7 +61,22 @@ nav a:hover {
     font-family: 'Playfair Display', serif; 
     font-size: 55px; 
     margin-bottom: 10px;
-    letter-spacing: 1px;
+    text-transform: uppercase;
+    /* Flowing Animation */
+    animation: flowLetters 3s ease-out forwards;
+}
+
+@keyframes flowLetters {
+    0% {
+        letter-spacing: 20px;
+        opacity: 0;
+        filter: blur(10px);
+    }
+    100% {
+        letter-spacing: 1px;
+        opacity: 1;
+        filter: blur(0);
+    }
 }
 
 .tagline { 
@@ -80,12 +86,7 @@ nav a:hover {
     display: block; 
     margin-bottom: 20px;
     opacity: 0;
-    transform: translateY(20px);
-    animation: fadeInUp 1s forwards;
-}
-
-@keyframes fadeInUp {
-    to { opacity: 1; transform: translateY(0); }
+    animation: fadeInUp 1s ease-out 2.5s forwards; /* Starts near end of title animation */
 }
 
 .hero-text p {
@@ -93,40 +94,38 @@ nav a:hover {
     line-height: 1.6;
     margin-bottom: 30px;
     font-weight: 300;
+    opacity: 0;
+    animation: fadeInUp 1s ease-out 3s forwards;
 }
 
-.hero-buttons { display: flex; gap: 20px; justify-content: center; }
+.hero-buttons { 
+    display: flex; 
+    gap: 20px; 
+    justify-content: center; 
+    opacity: 0;
+    animation: fadeInUp 1s ease-out 3.5s forwards;
+}
 
-.btn { background: #ff7b00; color: white; padding: 15px 35px; text-decoration: none; border-radius: 5px; font-weight: bold; transition: 0.3s; display: inline-block;}
-.btn2 { background: #1565c0; color: white; padding: 15px 35px; text-decoration: none; border-radius: 5px; font-weight: bold; transition: 0.3s; display: inline-block;}
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.btn, .btn2 { padding: 15px 35px; text-decoration: none; border-radius: 5px; font-weight: bold; transition: 0.3s; display: inline-block; color: white; }
+.btn { background: #ff7b00; }
+.btn2 { background: #1565c0; }
 .btn:hover, .btn2:hover { transform: scale(1.05); filter: brightness(1.1); }
 
-/* DESCRIPTION SECTION */
-.description { 
-    padding: 80px 10% 0px 10%; 
-    text-align: center; 
-}
+/* SECTIONS */
+.description { padding: 80px 10% 40px 10%; text-align: center; }
+.description h1 { color: #002d5b; font-size: 36px; margin-bottom: 10px; }
+.description h2 { color: #ff7b00; font-size: 22px; font-family: 'Playfair Display', serif; }
 
-.description h1 { 
-    color: #002d5b; /* DARK BLUE SINHALA TEXT */
-    font-size: 36px; 
-    letter-spacing: -1.5px; 
-    margin-bottom: 10px; 
-}
-
-.description h2 { 
-    color: #ff7b00; 
-    font-size: 22px; 
-    font-family: 'Playfair Display', serif; 
-    margin-bottom: 0; 
-}
-
-/* TEACHER SECTION - Image Frame & Bio */
 .teacher { 
     display: flex; 
     align-items: center; 
     gap: 60px; 
-    padding: 60px 10% 80px 10%; 
+    padding: 60px 10% 80px 10%; /* 60px Gap at the top */
     background: transparent; 
     flex-wrap: wrap; 
     justify-content: center;
@@ -141,18 +140,9 @@ nav a:hover {
 }
 
 .teacher-info { flex: 1; min-width: 320px; }
+.teacher-info h2 { font-family: 'Playfair Display', serif; font-size: 45px; color: #002d5b; margin: 0 0 15px 0; }
 
-.teacher-info h2 { 
-    font-family: 'Playfair Display', serif; 
-    font-size: 45px; 
-    color: #002d5b; /* DARK BLUE NAME */
-    margin-top: 0; 
-    margin-bottom: 5px; 
-}
-
-.degree-text { color: #ff7b00; font-weight: 600; font-size: 18px; display: block; margin-bottom: 15px; }
-
-.teacher-info p { font-size: 17px; line-height: 1.8; color: #444; }
+.bio-text p { font-size: 17px; line-height: 1.8; color: #444; margin-bottom: 15px; text-align: justify; }
 
 .contact-highlight {
     margin-top: 25px;
@@ -160,34 +150,25 @@ nav a:hover {
     background: #ffffff;
     border-radius: 10px;
     display: inline-block;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
     border-left: 5px solid #ff7b00;
     font-weight: 600;
     font-size: 19px;
     color: #1565c0;
 }
 
-/* LOGIN PORTAL */
 .login { 
     background: white; 
     padding: 50px; 
     text-align: center; 
     max-width: 400px; 
-    margin: 80px auto; 
+    margin: 40px auto; 
     border-radius: 15px; 
     box-shadow: 0 10px 40px rgba(0,0,0,0.1); 
     border: 1px solid #eee; 
 }
-.login h2 { color: #1565c0; font-family: 'Playfair Display', serif; }
-.login input { width: 100%; padding: 12px; margin: 10px 0; border: 1px solid #ddd; border-radius: 5px; box-sizing: border-box; }
-.login button { width: 100%; padding: 12px; background: #1565c0; color: white; border: none; border-radius: 5px; font-weight: bold; cursor: pointer; transition: 0.3s; }
+.login h2 { color: #1565c0; margin-bottom: 20px; }
+.login input { width: 100%; padding: 12px; margin: 10px 0; border: 1px solid #ddd; border-radius: 5px; }
+.login button { width: 100%; padding: 12px; background: #1565c0; color: white; border: none; border-radius: 5px; cursor: pointer; transition: 0.3s; }
 .login button:hover { background: #ff7b00; }
 
-/* FOOTER */
-footer { 
-    background: #1565c0; 
-    color: white; 
-    text-align: center; 
-    padding: 40px; 
-    border-top: 5px solid #ff7b00; 
-}
+footer { background: #1565c0; color: white; text-align: center; padding: 40px; border-top: 5px solid #ff7b00; }
